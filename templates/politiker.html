@@ -1,0 +1,62 @@
+{% extends "template.html" %}
+{% block content %}
+
+<main class="container">
+    <div class="sort-options">
+        <label for="filter">Filter:</label>
+        <input type="text" id="filter" name="filter" value="{{ request.args.get('filter') }}">
+        
+        <label for="sort">Sort By:</label>
+        <select id="sort" name="sort">
+            <option value="name" {% if request.args.get('sort') == 'name' %}selected{% endif %}>Name</option>
+            <option value="partei" {% if request.args.get('sort') == 'partei' %}selected{% endif %}>Partei</option>
+            <option value="constituency" {% if request.args.get('sort') == 'constituency' %}selected{% endif %}>Constituency</option>
+            <!-- Add more sorting options as needed -->
+        </select>
+        
+        <button type="submit">Apply</button>
+    </div>
+
+	<div class="col-md-12" id="home">
+        <div class="row">
+            {% for row in data %}  
+            <div class="col-md-3">
+            <div class="card" id="politiker-overview-card">
+                <img src="{{ row.img_url }}" alt="{{ row.vorname }} {{ row.nachname }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ row.vorname }} {{ row.nachname }}<br> {{ row.partei }}</h5>
+                    <p class="card-text">Wahlkreis: {{ row.wahlkreis_id }} <br> Beruf: {{ row.beruf }} <br> Bundesland: {{ row.bundesland }}</p>
+                   
+                </div>
+                <div class="card-links">
+                <form class="politiker-overview" action="{{ url_for('abstimmungsverhalten') }}" method="POST">
+                    <input type="hidden" name="bundestags_id" value="{{ row.bundestags_id }}">
+                </form>
+                <div class="logo-row">
+                    <a href="{{ row.facebook_links }}" target="_blank" class="card-link">
+                    <img src="/static/images/Facebook_logo.png" alt="Facebook Logo">
+                    </a>
+                    <a href="{{ row.twitter_links }}" target="_blank" class="card-link">
+                    <img src="/static/images/Logo_Twitter.png" alt="Twitter Logo">
+                    </a>
+
+                    <a href="{{ row.instagram_links }}" target="_blank" class="card-link">
+                    <img src="/static/images/Instagram_logo.png" alt="Instagram Logo">
+                    </a>
+                    <a href="{{ row.website_links }}" target="_blank" class="card-link">
+                    <img src="https://www.freepnglogos.com/uploads/logo-website-png/logo-website-world-wide-web-svg-png-icon-download-10.png" alt="Website Logo">
+                    </a>
+                </div>
+                </div>
+                
+            
+            
+            </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</main>
+  
+  {% endblock %}

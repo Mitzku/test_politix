@@ -1,0 +1,134 @@
+{% extends "template.html" %}
+{% block content %}
+
+<main class="container">
+	<div class="col-md-12" id="home">
+		<div class="row">
+			  <div class="grid-item wow animate__animated animate__backInRight"> 
+				<h1>Willkommen zu Politix!</h1>
+				<p>Entdecken Sie die Welt der Politik mit datengetriebenen Insights!  </p>
+				<p>Im Grunde ist dies mein persönlicher Blog/mein persönliches Portfolio. Ich betreibe Analysen rund um das Thema politische Daten und visualisiere die Resultate hier. Derzeit je nach Lust und Laune. Alle Daten habe ich mir mittels webscraping und diversen APIs selbst zusammengesucht und auch der Code für die Verarbeitung und Visualisierungen ist auf meinem Github Profil einsehbar.</p>
+				<p>Derzeit liegt ein starker Fokus auf dem Aufbau dieses Webauftritts sowie Twitter Analysen, werde aber zu den Landtagswahlen in Bayern dieses Jahr auch Wahlkampfwerbung samt Budget, Zielgruppe und Inhalt analysieren.</p>
+			  </div>
+		</div>
+	</div>
+	
+	<div class="grid-item wow animate__animated animate__backInRight">
+		<div class="row">
+			<div class="col-md-6">
+				<div id="carouselExampleDark" class="carousel carousel-dark slide">
+					<div class="carousel-indicators">
+					  {% for i in range(3) %}
+						<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="{{ i }}" {% if i == 0 %}class="active" aria-current="true"{% endif %} aria-label="Slide {{ i+1 }}"></button>
+					  {% endfor %}
+					</div>
+					<div class="carousel-inner">
+					  {% for politician in politicians %}
+						<div class="carousel-item{% if loop.index == 1 %} active{% endif %}" data-bs-interval="10000">
+						  <img src="{{ politician['img_url'] }}" class="d-block w-100" alt="...">
+						  <div class="carousel-caption d-none d-md-block">
+							<h5>{{ politician['vorname'] }} {{ politician['nachname'] }}</h5>
+							<p class="card-text">Partei: {{ politician['partei'] }}<br> Wahlkreis: {{ politician['wahlkreis_id'] }} <br> Beruf: {{ politician['beruf'] }} <br> Bundesland: {{ politician['bundesland'] }}</p>
+						  </div>
+						</div>
+					  {% endfor %}
+					</div>
+					<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+					  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					  <span class="visually-hidden">Previous</span>
+					</button>
+					<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+					  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+					  <span class="visually-hidden">Next</span>
+					</button>
+				  </div>
+						
+			</div>
+			<div class="col-md-6" id="politiker">
+				<div class="d-flex flex-column">
+					<h1>Politiker Profile</h1>
+					<p>Ich erstelle Politiker-Profile die einen umfassenden Überblick über die Aktivitäten und das Abstimmungsverhalten von Politikern geben sollen. Hier finden Sie biografische und wahlrechtliche Informationen sowie das Abstimmungsverhalten. Derzeit ist diese Sektion noch im Aufbau. Die Datenbank beinhaltet aber bereits viele demografische Verhalten sowie alle Tweets.</p>
+					<div class="border-first-button">
+						<a href="/politiker">Alle Profile</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+		  <h1 id="twitter">Twitter Analysen</h1>
+		  <p>Hier finden Sie ausgewählte Twitter-Analysen zu verschiedenen Themen und Politikern. Klicken Sie einfach auf einen der folgenden Links, um die jeweilige Analyse zu öffnen.</p>
+		</div>
+	  </div>
+	  <div class="row">
+		<div class="col-md-4">
+		  <div class="card h-100">
+			<img src="/static/images/empty_spaceholder.png" class="card-img-top" alt="">
+			<div class="card-body">
+			  <h5 class="card-title">Analyse der Tweet Themen unserer Politiker</h5>
+			  <p class="card-text">Hier finden Sie eine Analyse der Themen über die unsere Bundestagsfraktionen tweeten seit 2015. Die Klassifikation der etwa 1.5 Millionen Tweets erfolgt mittels NLP und die Ergebnisse sind visuell aufbereitet</p>
+			</div>
+			<div class="card-footer">
+			  <div class="border-first-button d-flex justify-content-center">
+				<a href="/analysen/tweet_themen" >Zur Analyse</a>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="col-md-4">
+		  <div class="card h-100">
+			<a href="/analysen/twitter_nutzung" target="_blank"><img src="/static/images/tweet_count_by_party.png" class="card-img-top" alt=""></a>
+			<div class="card-body">
+			  <h5 class="card-title">Analyse zum Tweetverhalten der Bundestagsfraktionen</h5>
+			  <p class="card-text">Hier finden Sie eine Analyse des Tweets von Annalena Baerbock, in dem sie sich zur Klimapolitik äußert.</p>
+			</div>
+			<div class="card-footer">
+			  <div class="border-first-button d-flex justify-content-center">
+				<a href="/analysen/twitter_nutzung" >Zur Analyse</a>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="col-md-4">
+		  <div class="card h-100">
+			<a href="..." target="_blank"><img src="/static/images/empty_spaceholder.png" class="card-img-top" alt=""></a>
+			<div class="card-body">
+			  <h5 class="card-title">Weitere Analysen</h5>
+			  <p class="card-text">Derzeit arbeite ich an weiteren Klassifizierungen, Top Tweets, Follower Analysen und vielen mehr!</p>
+			</div>
+			<div class="card-footer">
+			  <div class="border-first-button d-flex justify-content-center">
+				<a href="/analysen" >Zu allen Analysen</a>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+			
+	  
+	  </section>
+	  <section class="bg-light py-5">
+		<div class="container">
+			<h2>Wer steckt hinter Politix?</h2>
+			<div class="row">
+				<div class="col-md-3"> 
+					<img src="/static/images/profile_image.jpg" class="card-img-top" alt="">
+				</div>
+				<div class="col-md-3"> 
+					<h5>Gregor Konzack</h5>
+					<p class="card-text"> Viel mit quantitativen Daten habe ich zwar bereits in meinem Politikwissenschaftstudium gearbeitet, zur Datenanalysen mit Python und SQL bin ich aber erst in meiner beruflichen Laufbahn gestoßen.</p>
+				</div>
+				<div class="col-md-3"> 
+					<p class="card-text"> <br> Beruflich habe ich sehr viel mit Cloud Infrastrukturen und Daten zu Produkt und Marketing gearbeitet. Praktische Erfahrung mit Daten habe ich in Start-Ups, Consulting und der Automobil-Industrie gesammelt.</p>
+				</div>
+				<div class="col-md-3"> 
+					<p class="card-text"> <br> Als Hobby beschäftige ich mich mit politische Daten und baue dadurch meine Fähigkeiten in KI-gestützer Analyse aus. Nebenbei auch noch FrontEnd natürlich. Was man so braucht. <br> ^^</p>
+				</div>
+			</div>
+		</div>
+	  </section>
+
+
+
+{% endblock %}

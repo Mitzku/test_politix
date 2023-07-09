@@ -1,0 +1,69 @@
+{% extends "template.html" %}
+{% block content %}
+
+<main class="container">
+	<div class="col-md-12" >
+		<div class="row">
+			  <div class="grid-item wow animate__animated animate__backInRight"> 
+				<h1>Twitter Nutzung der Bundestagsfraktionen</h1>
+				<p>Ich mache diese Datenanalysen zu politischen Themen aus Spaß an der Freude und freue mich über jeglichen Input. Ihr findet meinen gesamten Code auf meiner <a href="https://www.example.com">Github Seite</a>.</p>
+                <p>Heute: Eine Analyse der Twitter Aktivitäten unserer derzeitigen Bundestagsfraktionen.</p>
+				<p> Mich beschäftigt die Frage wie sich das Tweetverhalten unserer Bundestagsabgeordneten entwickelt hat und wie sich diese verteilt und von der Twittergemeinde aufgenommen wird. Als Datengrundlage habe ich hierzu alle Tweets bis Anfang März 2023 mittels eines scrapers für soziale Netzwerke von Twitter gehohlt (Link zur Github Seite von <a href="https://github.com/JustAnotherArchivist/snscrape">SNScrape</a> ). Insgesamt habe ich für 735 MDBs etwas mehr als 735000 Tweets dadurch gefunden und diese in einer lokalen Datenbank gespeichert.</p>
+				
+				<p> Sehen wir uns also nun einmal an wie sich die absoluten Zahlen entwickelt haben.</p>
+				<img id="blog_graphic" src="/static/images/tweet_count_by_party.png">
+				<p> Es wird sofort klar, dass sich Twitter als politisches Medium seit 2008 stark gewachsen ist. Haben die derzeitigen MDBs Anfang der 2010er Jahre noch etwa 10000 Tweets abgesetzte, so ist es über die Dekade stark gewachsen und hat sich in etwa verdoppelt.<p>
+
+				</p>Auf den ersten Blick erscheinz der Anteil der einzelnen Parteien am Tweetverhalten relativ stabil. Ein großer Spike ist die Ausnahme der FDP welche seid 2018/2019 deutlich mehr tweeted, das auftreten der AFD und fraktionsloser sowie ein deutliches abflachen der Linken von früher mal über 20% aller Tweets zu jetzt unter 10%.</p>
+
+				<p>Genauer können wir den einzelnen Prozentsatz der Parteien über die Jahre in dieser Grafik sehen.</p>
+
+				<img id="blog_graphic" src="/static/images/tweet_share_by_party.png">
+
+				<p>Für die FDP hat sich Twitter besonders etabliert und ist von einem Anteil von unter 10% auf die am stärksten vertretende Partei angewachsen. Im selben Zeitraum hat die Linke stark und die SPD leicht auf Twitter eingebüß. Die Grünen sowie die CDU sind in ihrem Anteil dabei relativ stabil um die 20%. Insgesamt ensteht dadurch für Nutzende von Twitter der Eindruck, dass die Parteien eine ausgewogene Präsenz haben.</p>
+
+				<p> Zu beachten ist dabei jedoch, dass wir natürlich nicht gleich viele MDBs zu jeder Fraktion haben. Und obwohl wir hier vielleicht messen können welche Partei am 'lautesten' auf Twitter ist, so sagt uns dies relativ wenig über die Beliebtheit von Twitter bei den MDBs selbst. Hierfür müssen wir uns ansehen wieviel der durschnittliche Tweetanteil eines MDB is.</p>
+				
+				<h1>IMAGE</h1>
+
+				<p> der Tweet aller Abgeordneten der je die meisten Likes erhalten hat ist dieser: https://twitter.com/KarambaDiaby/status/1267739857989795840 (embed this) gegen Rassismus gefolgt (am Rande könnte man erwähnen das der MDB auch heute noch Ziel von Rassismus ist, wie z.b. bei einem Brandanschlag auf sein Bürgerbüro https://www.karamba-diaby.de/stellungnahme-zum-brandanschlag-auf-mein-buergerbuero/ ) von diesem https://twitter.com/ABaerbock/status/1499818155622940672 welcher Sympathie für die Ukraine ausdrückt und https://twitter.com/kurtus/status/1498274815207161860 zu Pflege.</p>
+
+				<div class="twitter-container">
+					<div class="tweet-card">
+						<div class="tweet-content">
+							<blockquote class="twitter-tweet"><p lang="de" dir="ltr">Ich sei hier nicht erwünscht! Ich lebe seit fast 35 Jahren in Halle und habe die Stadt nie länger als vier Wochen verlassen. Das gedenke ich auch in Zukunft nicht zu tun. <a href="https://t.co/LccFEykdBv">pic.twitter.com/LccFEykdBv</a></p>&mdash; Dr. Karamba Diaby (@KarambaDiaby) <a href="https://twitter.com/KarambaDiaby/status/1267739857989795840?ref_src=twsrc%5Etfw">June 2, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+						</div>
+						<div class="text-content">
+							<p>Your text content here</p>
+						</div>
+				  	</div>
+				  
+					<div class="tweet-card">
+						<div class="tweet-content">
+							<blockquote class="twitter-tweet"><p lang="de" dir="ltr">Ich komm nicht drüber weg: <br><br>1 Milliarde Pflegebonus. <br>Nach 2 Jahren Pandemie und 1,5 Jahren Diskussion. <br><br>100 Mrd für die Bundeswehr. Über Nacht.</p>&mdash; Nicole Gohlke (@NicoleGohlke) <a href="https://twitter.com/NicoleGohlke/status/1497995498921279497?ref_src=twsrc%5Etfw">February 27, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+						</div>
+						<div class="text-content">
+						<p>Your text content here</p>
+						</div>
+					</div>
+
+					<div class="tweet-card">
+						<div class="tweet-content">
+							<blockquote class="twitter-tweet"><p lang="de" dir="ltr">Es gab keinen Grund für diesen Krieg – außer dem aggressiven Machtstreben eines Mannes. Aber es ist keine Größe, wenn man Schwächere überfällt, Städte bombardiert, Kinder sterben lässt. Unsere Verantwortung ist es, dem entschieden entgegenzutreten. 1/3</p>&mdash; Außenministerin Annalena Baerbock (@ABaerbock) <a href="https://twitter.com/ABaerbock/status/1499818155622940672?ref_src=twsrc%5Etfw">March 4, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+						</div>
+						<div class="text-content">
+						<p>Your text content here</p>
+						</div>
+					</div>
+				</div>
+				
+
+				<p> Werden die Likes mehr? Sprich engagieren wir mehr mit den Tweets?</p>
+				<p> analyse zur Like Entwicklung</p>
+			  </div>
+		</div>
+</main>
+
+
+
+{% endblock %}

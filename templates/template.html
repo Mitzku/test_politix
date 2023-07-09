@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Politix</title>
+	<!-- Bootstrap CSS CDN -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+
+	<!-- Wow CSS CDN -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"> 
+
+  <!-- My CSS  -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/custom.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/_card.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/carousel.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/analyse.css') }}">
+</head>  
+   
+</body>
+<header class="header-area header-sticky wow slideInDown animated" data-wow-duration="0.75s" data-wow-delay="0s" style="visibility: visible;-webkit-animation-duration: 0.75s; -moz-animation-duration: 0.75s; animation-duration: 0.75s;-webkit-animation-delay: 0s; -moz-animation-delay: 0s; animation-delay: 0s;">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nav class="main-nav">
+          <!-- ***** Logo Start ***** -->
+          <a href="/" class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="">
+          </a>
+          <a href="/">
+            <div class="nav-text">POLITIX</div>
+          </a>
+          <!-- ***** Logo End ***** -->
+          <!-- ***** Menu Start ***** -->
+          <ul class="nav">
+            <li class="scroll-to-section"><a href="/" class="">Home</a></li>
+            <li class="scroll-to-section"><a href="/analysen">Twitter Analysen</a></li>
+            <li class="scroll-to-section"><a href="/politiker">Politiker Profile</a></li>
+            <li class="scroll-to-section"><div class="border-first-button"><a href="#code">Code on Github</a></div></li> 
+          </ul>        
+          <a class="menu-trigger">
+              <span>Menu</span>
+          </a>
+          <!-- ***** Menu End ***** -->
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+{% block content %}
+
+{% endblock %}
+<footer class="footer">
+  <div class="container">
+      <div class="row">
+          <div class="col-12">
+              <p>Politix &copy; 2023</p>
+              <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+          </div>
+      </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
+<script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+<script>
+  new WOW().init();
+</script>
+<script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+
+</body>
+
+</html>
