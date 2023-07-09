@@ -1,0 +1,35 @@
+.carousel {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+  .carousel__container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  .carousel__item {
+    flex-shrink: 0;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+  .carousel__item img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  .carousel-caption {
+    position: absolute;
+    right: 15%;
+    bottom: 20px;
+    left: 15%;
+    z-index: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center;
+    background-color: #ffff;
+  }
+  

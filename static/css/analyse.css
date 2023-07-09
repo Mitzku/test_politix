@@ -1,0 +1,30 @@
+.twitter-container {
+  display: flex;
+}
+
+
+.twitter-tweet {
+    text-align: center;
+    max-width: 100px; /* Adjust the width as per your preference */
+    margin: 0 auto;
+  }
+
+  .tweet-card {
+    display: flex;
+    background-color: #E9F3FD; /* Adjust the background color as per your preference */
+    padding: 20px;
+    margin-bottom: 20px;
+    max-width: 50px;
+    flex: 1;
+  }
+
+  .tweet-content {
+    flex: 1;
+    margin-right: 20px;
+  }
+
+  .text-content {
+    flex: 1;
+    background-color: #F7F7F7; /* Adjust the background color as per your preference */
+    padding: 20px;
+  }
